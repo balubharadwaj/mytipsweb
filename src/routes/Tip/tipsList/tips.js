@@ -122,7 +122,8 @@ class Tips extends React.Component {
                 {pageOfItems.map((tip, index) => {
                     return(                       
                         <div className="tip" key={index}>
-                                                                                  
+                            <div className="image" style={{ backgroundImage: "url(" + tip.images  + ")"}}>
+                            </div>                                                      
                             <img src={tip.images} alt={tip.title}/>   
                             <div>
                                     <h3>{tip.title}</h3>                                    
@@ -158,6 +159,8 @@ class Tips extends React.Component {
         )
     }
     }
+
+
 
 }
 

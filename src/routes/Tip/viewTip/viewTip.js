@@ -7,22 +7,21 @@ import axios from 'axios';
 
 class Tip extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.viewtip = this.viewtip.bind(this);
-        this.viewtip();
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.viewtip = this.viewtip.bind(this);
+    //     this.viewtip();
+    // }
 
     state = {
         comment: [],
         error: null,
-        likes: Boolean
     }
 
-    componentWillMount() {
+    // componentWillMount() {
         
-        this.makeFourite()
-    }
+    //     this.makeFourite()
+    // }
 
     viewtip(e) {
         var tip =   JSON.parse(window.sessionStorage.getItem("tip"));        
@@ -44,35 +43,35 @@ class Tip extends React.Component {
         })
     }
 
-    makeFourite() {
-        var tip =   JSON.parse(window.sessionStorage.getItem("tip"));        
-        //console.log(e)
-        var a = []
-        a = sessionStorage.getItem("login")
-        a = JSON.parse(a);
-        var b = []
-        b.push(a)        
-        console.log(b[0].id)
-        axios.post("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/favorite/"+tip.id+"/"+b[0].id)
-        .then(res => {
-            const likes =  res.data;
-            console.log(likes)
-            this.setState({
-                likes,
-                error: null,
+    // makeFourite() {
+    //     var tip =   JSON.parse(window.sessionStorage.getItem("tip"));        
+    //     //console.log(e)
+    //     var a = []
+    //     a = sessionStorage.getItem("login")
+    //     a = JSON.parse(a);
+    //     var b = []
+    //     b.push(a)        
+    //     console.log(b[0].id)
+    //     axios.post("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/favorite/"+tip.id+"/"+b[0].id)
+    //     .then(res => {
+    //         const likes =  res.data;
+    //         console.log(likes)
+    //         this.setState({
+    //             likes,
+    //             error: null,
                 
-            });
-        })
-        .catch(err => {
-            this.setState({
-                error: err
-            })           
-        })
-      }
+    //         });
+    //     })
+    //     .catch(err => {
+    //         this.setState({
+    //             error: err
+    //         })           
+    //     })
+    //   }
 
     render () {
         var tip =   JSON.parse(window.sessionStorage.getItem("tip"));
-        const { comment, likes} = this.state;
+        const { comment} = this.state;
         return (
             <div>
                 <div className="viewtipContainer">
@@ -84,11 +83,7 @@ class Tip extends React.Component {
                             <img src={tip.images} alt={tip.title}/>                               
                             <table>
                                 <tbody> 
-                                    {
-                                        likes.favourite ?
-                                        <tr><i className="fa fa-heart" onClick={(e) => this.makeFourite(tip)}></i></tr> :
-                                        <tr><i className="fa fa-heart-o" onClick={(e) => this.makeFourite(tip)}></i></tr>
-                                    }
+                                   
                                     <tr> 
                                         <td><label>category:</label> {tip.category}</td>
                                         { tip.comments ? 
