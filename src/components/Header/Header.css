@@ -1,0 +1,11 @@
+.navbar-inverse {
+  background-color: #33FF9B;
+  border-color: #080808;
+}
+
+.navbar {
+  position: relative;
+  min-height: 65px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
