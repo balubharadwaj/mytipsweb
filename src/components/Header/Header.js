@@ -142,6 +142,13 @@ class Header extends React.Component {
   logout() {
     history.push('/');
     window.sessionStorage.removeItem("login")
+    window.FB.logout(
+        function (response) {
+            
+        }
+    ) 
+
+    
 }
 
 
