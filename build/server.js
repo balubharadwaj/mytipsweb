@@ -21465,111 +21465,123 @@ module.exports =
                       null,
                       _react2.default.createElement(
                           'div',
-                          { className: 'tipsContainer' },
-                          _react2.default.createElement('input', { type: 'text', placeholder: 'Search For Tip', onChange: this.change.bind(this) }),
-                          _react2.default.createElement('div', { className: 'clear' }),
+                          { className: 'tipsContainer container' },
+                          _react2.default.createElement(
+                              'div',
+                              { className: 'search' },
+                              _react2.default.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' }),
+                              _react2.default.createElement('input', { type: 'text', placeholder: 'Search For Tip', onChange: this.change.bind(this) }),
+                              _react2.default.createElement('div', { className: 'clear' })
+                          ),
                           pageOfItems.map(function (tip, index) {
                               return _react2.default.createElement(
                                   'div',
-                                  { className: 'tip', key: index },
-                                  _react2.default.createElement('div', { className: 'image', style: { backgroundImage: "url(" + tip.images + ")" } }),
-                                  _react2.default.createElement('img', { src: tip.images, alt: tip.title }),
+                                  { className: 'col-md-4' },
                                   _react2.default.createElement(
                                       'div',
-                                      null,
+                                      { className: 'tip', key: index },
+                                      _react2.default.createElement('div', { className: 'image', style: { backgroundImage: "url(" + tip.images + ")" } }),
                                       _react2.default.createElement(
-                                          'h3',
-                                          null,
-                                          tip.title
-                                      )
-                                  ),
-                                  _react2.default.createElement(
-                                      'table',
-                                      null,
-                                      _react2.default.createElement(
-                                          'tbody',
-                                          null,
+                                          'div',
+                                          { className: 'imageDetails' },
                                           _react2.default.createElement(
-                                              'tr',
+                                              'div',
                                               null,
                                               _react2.default.createElement(
-                                                  'td',
+                                                  'h3',
+                                                  null,
+                                                  tip.title
+                                              )
+                                          ),
+                                          _react2.default.createElement(
+                                              'table',
+                                              null,
+                                              _react2.default.createElement(
+                                                  'tbody',
                                                   null,
                                                   _react2.default.createElement(
-                                                      'label',
+                                                      'tr',
                                                       null,
-                                                      'category:'
-                                                  ),
-                                                  ' ',
-                                                  tip.category
-                                              ),
-                                              tip.comments ? _react2.default.createElement(
-                                                  'td',
-                                                  null,
-                                                  _react2.default.createElement(
-                                                      'label',
-                                                      null,
-                                                      'comments: ',
                                                       _react2.default.createElement(
-                                                          _reactBootstrap.Label,
+                                                          'td',
                                                           null,
-                                                          tip.comments.length
+                                                          _react2.default.createElement(
+                                                              'label',
+                                                              null,
+                                                              'category:'
+                                                          ),
+                                                          ' ',
+                                                          tip.category
+                                                      ),
+                                                      tip.comments ? _react2.default.createElement(
+                                                          'td',
+                                                          null,
+                                                          _react2.default.createElement(
+                                                              'label',
+                                                              null,
+                                                              'comments: ',
+                                                              _react2.default.createElement(
+                                                                  _reactBootstrap.Label,
+                                                                  null,
+                                                                  tip.comments.length
+                                                              )
+                                                          ),
+                                                          ' '
+                                                      ) : _react2.default.createElement(
+                                                          'td',
+                                                          null,
+                                                          _react2.default.createElement(
+                                                              'label',
+                                                              null,
+                                                              'comments: 0'
+                                                          )
                                                       )
                                                   ),
-                                                  ' '
-                                              ) : _react2.default.createElement(
-                                                  'td',
-                                                  null,
                                                   _react2.default.createElement(
-                                                      'label',
+                                                      'tr',
                                                       null,
-                                                      'comments: 0'
+                                                      _react2.default.createElement(
+                                                          'td',
+                                                          null,
+                                                          _react2.default.createElement(
+                                                              'label',
+                                                              null,
+                                                              'Likes:'
+                                                          ),
+                                                          ' ',
+                                                          _react2.default.createElement(
+                                                              _reactBootstrap.Label,
+                                                              null,
+                                                              tip.likes.length
+                                                          )
+                                                      ),
+                                                      _react2.default.createElement(
+                                                          'td',
+                                                          null,
+                                                          _react2.default.createElement(
+                                                              'label',
+                                                              null,
+                                                              'favourites:'
+                                                          ),
+                                                          ' ',
+                                                          _react2.default.createElement(
+                                                              _reactBootstrap.Label,
+                                                              null,
+                                                              tip.favourites.length
+                                                          )
+                                                      )
                                                   )
                                               )
                                           ),
                                           _react2.default.createElement(
-                                              'tr',
-                                              null,
-                                              _react2.default.createElement(
-                                                  'td',
-                                                  null,
-                                                  _react2.default.createElement(
-                                                      'label',
-                                                      null,
-                                                      'Likes:'
-                                                  ),
-                                                  ' ',
-                                                  _react2.default.createElement(
-                                                      _reactBootstrap.Label,
-                                                      null,
-                                                      tip.likes.length
-                                                  )
-                                              ),
-                                              _react2.default.createElement(
-                                                  'td',
-                                                  null,
-                                                  _react2.default.createElement(
-                                                      'label',
-                                                      null,
-                                                      'favourites:'
-                                                  ),
-                                                  ' ',
-                                                  _react2.default.createElement(
-                                                      _reactBootstrap.Label,
-                                                      null,
-                                                      tip.favourites.length
-                                                  )
-                                              )
+                                              _reactBootstrap.Button,
+                                              { bsStyle: 'primary', bsSize: 'large', active: true,
+                                                  onClick: function onClick(e) {
+                                                      e.preventDefault();_history2.default.push('/tipDetails');_this4.handleClick(tip);
+                                                  } },
+                                              'View Post...'
                                           )
                                       )
-                                  ),
-                                  _react2.default.createElement(
-                                      _reactBootstrap.Button,
-                                      { bsStyle: 'primary', bsSize: 'large', active: true,
-                                          onClick: function onClick(e) {
-                                              e.preventDefault();_history2.default.push('/tipDetails');_this4.handleClick(tip);
-                                          } },
-                                      'CONTINUE READING...'
                                   )
                               );
                           }),
@@ -21720,173 +21732,174 @@ module.exports =
                   null,
                   _react2.default.createElement(
                       'div',
-                      { className: 'viewtipContainer' },
+                      { className: 'viewtipContainer container' },
                       _react2.default.createElement(
                           'div',
                           { className: 'tip' },
                           _react2.default.createElement(
                               'div',
-                              null,
+                              { className: 'col-md-8' },
                               _react2.default.createElement(
-                                  'h3',
-                                  null,
-                                  tip.title
-                              )
-                          ),
-                          _react2.default.createElement('img', { src: tip.images, alt: tip.title }),
-                          _react2.default.createElement(
-                              'table',
-                              null,
-                              _react2.default.createElement(
-                                  'tbody',
-                                  null,
+                                  'div',
+                                  { className: 'viewTip' },
+                                  _react2.default.createElement('img', { className: 'viewimage', src: tip.images, alt: tip.title }),
                                   _react2.default.createElement(
-                                      'tr',
+                                      'table',
                                       null,
                                       _react2.default.createElement(
-                                          'td',
+                                          'tbody',
                                           null,
                                           _react2.default.createElement(
-                                              'label',
+                                              'tr',
                                               null,
-                                              'category:'
-                                          ),
-                                          ' ',
-                                          tip.category
-                                      ),
-                                      tip.comments ? _react2.default.createElement(
-                                          'td',
-                                          null,
-                                          _react2.default.createElement(
-                                              'label',
-                                              null,
-                                              'comments: ',
                                               _react2.default.createElement(
-                                                  _reactBootstrap.Label,
+                                                  'td',
                                                   null,
-                                                  tip.comments.length
+                                                  _react2.default.createElement(
+                                                      'label',
+                                                      null,
+                                                      'category:'
+                                                  ),
+                                                  ' ',
+                                                  tip.category
+                                              ),
+                                              tip.comments ? _react2.default.createElement(
+                                                  'td',
+                                                  null,
+                                                  _react2.default.createElement(
+                                                      'label',
+                                                      null,
+                                                      'comments: ',
+                                                      _react2.default.createElement(
+                                                          _reactBootstrap.Label,
+                                                          null,
+                                                          tip.comments.length
+                                                      )
+                                                  ),
+                                                  ' '
+                                              ) : _react2.default.createElement(
+                                                  'td',
+                                                  null,
+                                                  _react2.default.createElement(
+                                                      'label',
+                                                      null,
+                                                      'comments: 0'
+                                                  )
                                               )
                                           ),
-                                          ' '
-                                      ) : _react2.default.createElement(
-                                          'td',
-                                          null,
                                           _react2.default.createElement(
-                                              'label',
+                                              'tr',
                                               null,
-                                              'comments: 0'
+                                              _react2.default.createElement(
+                                                  'td',
+                                                  null,
+                                                  _react2.default.createElement(
+                                                      'label',
+                                                      null,
+                                                      'Likes:'
+                                                  ),
+                                                  ' ',
+                                                  _react2.default.createElement(
+                                                      _reactBootstrap.Label,
+                                                      null,
+                                                      tip.likes.length
+                                                  )
+                                              ),
+                                              _react2.default.createElement(
+                                                  'td',
+                                                  null,
+                                                  _react2.default.createElement(
+                                                      'label',
+                                                      null,
+                                                      'favourites:'
+                                                  ),
+                                                  ' ',
+                                                  _react2.default.createElement(
+                                                      _reactBootstrap.Label,
+                                                      null,
+                                                      tip.favourites.length
+                                                  )
+                                              )
                                           )
                                       )
                                   ),
                                   _react2.default.createElement(
-                                      'tr',
+                                      Highlight,
+                                      { innerHTML: true, className: 'language-name-of-snippet' },
+                                      tip.description
+                                  ),
+                                  _react2.default.createElement(
+                                      'h2',
                                       null,
-                                      _react2.default.createElement(
-                                          'td',
-                                          null,
+                                      'Comments:'
+                                  ),
+                                  comment.map(function (comments, index) {
+                                      return _react2.default.createElement(
+                                          'div',
+                                          { key: index },
                                           _react2.default.createElement(
-                                              'label',
+                                              _reactBootstrap.Media,
                                               null,
-                                              'Likes:'
-                                          ),
-                                          ' ',
-                                          _react2.default.createElement(
-                                              _reactBootstrap.Label,
-                                              null,
-                                              tip.likes.length
+                                              _react2.default.createElement(
+                                                  _reactBootstrap.Media.Left,
+                                                  null,
+                                                  _react2.default.createElement('img', { width: 64, height: 64, src: 'http://ieee.ece.ufl.edu/img/profile-pics/default_person.png', alt: 'Image' })
+                                              ),
+                                              _react2.default.createElement(
+                                                  _reactBootstrap.Media.Body,
+                                                  null,
+                                                  comments.user ? _react2.default.createElement(
+                                                      _reactBootstrap.Media.Heading,
+                                                      null,
+                                                      comments.user.firstName
+                                                  ) : _react2.default.createElement(
+                                                      _reactBootstrap.Media.Heading,
+                                                      null,
+                                                      'user name'
+                                                  ),
+                                                  _react2.default.createElement(
+                                                      'p',
+                                                      null,
+                                                      comments.commentText
+                                                  ),
+                                                  comments.replyComments ? _react2.default.createElement(
+                                                      'div',
+                                                      null,
+                                                      ' ',
+                                                      comments.replyComments.map(function (rc, index1) {
+                                                          return _react2.default.createElement(
+                                                              _reactBootstrap.Media,
+                                                              { key: index1 },
+                                                              _react2.default.createElement(
+                                                                  _reactBootstrap.Media.Left,
+                                                                  null,
+                                                                  _react2.default.createElement('img', { width: 64, height: 64, src: 'http://ieee.ece.ufl.edu/img/profile-pics/default_person.png', alt: 'Image' })
+                                                              ),
+                                                              _react2.default.createElement(
+                                                                  _reactBootstrap.Media.Body,
+                                                                  null,
+                                                                  comments.user ? _react2.default.createElement(
+                                                                      _reactBootstrap.Media.Heading,
+                                                                      null,
+                                                                      rc.user.firstName
+                                                                  ) : _react2.default.createElement('div', null),
+                                                                  _react2.default.createElement(
+                                                                      'p',
+                                                                      null,
+                                                                      rc.commentText
+                                                                  )
+                                                              )
+                                                          );
+                                                      })
+                                                  ) : _react2.default.createElement('div', null)
+                                              )
                                           )
-                                      ),
-                                      _react2.default.createElement(
-                                          'td',
-                                          null,
-                                          _react2.default.createElement(
-                                              'label',
-                                              null,
-                                              'favourites:'
-                                          ),
-                                          ' ',
-                                          _react2.default.createElement(
-                                              _reactBootstrap.Label,
-                                              null,
-                                              tip.favourites.length
-                                          )
-                                      )
-                                  )
+                                      );
+                                  })
                               )
                           ),
-                          _react2.default.createElement(
-                              Highlight,
-                              { innerHTML: true, className: 'language-name-of-snippet' },
-                              tip.description
-                          ),
-                          _react2.default.createElement(
-                              'h2',
-                              null,
-                              'Comments:'
-                          ),
-                          comment.map(function (comments, index) {
-                              return _react2.default.createElement(
-                                  'div',
-                                  { key: index },
-                                  _react2.default.createElement(
-                                      _reactBootstrap.Media,
-                                      null,
-                                      _react2.default.createElement(
-                                          _reactBootstrap.Media.Left,
-                                          null,
-                                          _react2.default.createElement('img', { width: 64, height: 64, src: 'http://ieee.ece.ufl.edu/img/profile-pics/default_person.png', alt: 'Image' })
-                                      ),
-                                      _react2.default.createElement(
-                                          _reactBootstrap.Media.Body,
-                                          null,
-                                          comments.user ? _react2.default.createElement(
-                                              _reactBootstrap.Media.Heading,
-                                              null,
-                                              comments.user.firstName
-                                          ) : _react2.default.createElement(
-                                              _reactBootstrap.Media.Heading,
-                                              null,
-                                              'user name'
-                                          ),
-                                          _react2.default.createElement(
-                                              'p',
-                                              null,
-                                              comments.commentText
-                                          ),
-                                          comments.replyComments ? _react2.default.createElement(
-                                              'div',
-                                              null,
-                                              ' ',
-                                              comments.replyComments.map(function (rc, index1) {
-                                                  return _react2.default.createElement(
-                                                      _reactBootstrap.Media,
-                                                      { key: index1 },
-                                                      _react2.default.createElement(
-                                                          _reactBootstrap.Media.Left,
-                                                          null,
-                                                          _react2.default.createElement('img', { width: 64, height: 64, src: 'http://ieee.ece.ufl.edu/img/profile-pics/default_person.png', alt: 'Image' })
-                                                      ),
-                                                      _react2.default.createElement(
-                                                          _reactBootstrap.Media.Body,
-                                                          null,
-                                                          comments.user ? _react2.default.createElement(
-                                                              _reactBootstrap.Media.Heading,
-                                                              null,
-                                                              rc.user.firstName
-                                                          ) : _react2.default.createElement('div', null),
-                                                          _react2.default.createElement(
-                                                              'p',
-                                                              null,
-                                                              rc.commentText
-                                                          )
-                                                      )
-                                                  );
-                                              })
-                                          ) : _react2.default.createElement('div', null)
-                                      )
-                                  )
-                              );
-                          })
+                          _react2.default.createElement('div', { className: 'col-md-4' }),
+                          _react2.default.createElement('div', { className: 'clearfix' })
                       )
                   )
               );

@@ -74,13 +74,17 @@ class Tip extends React.Component {
         const { comment} = this.state;
         return (
             <div>
-                <div className="viewtipContainer">
+                <div className="viewtipContainer container">
                                           
                         <div className="tip">
-                            <div>
+                            <div className="col-md-8">
+                                <div className="viewTip">
+                            {/* <div>
                                     <h3>{tip.title}</h3>                                    
-                            </div>                                                      
-                            <img src={tip.images} alt={tip.title}/>                               
+                            </div>   */}
+                            {/* <div className="image" style={{ backgroundImage: "url(" + tip.images + ")" }}>
+                            </div>                                                     */}
+                            {<img className="viewimage" src={tip.images} alt={tip.title}/>                               }
                             <table>
                                 <tbody> 
                                    
@@ -137,7 +141,11 @@ class Tip extends React.Component {
                                     </div>)
                                 })
                             }
-                        </div>               
+                            </div>
+                        </div> 
+                        <div className="col-md-4"></div> 
+                        <div className="clearfix"></div>
+                        </div>            
                 </div>
             </div>
         )
