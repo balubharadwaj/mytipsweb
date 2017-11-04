@@ -128,8 +128,8 @@ class Tips extends React.Component {
                         {pageOfItems.map((tip, index) => {
                             return (
 
-                                <div className="col-md-4">
-                                    <div className="tip" key={index}>
+                                <div className="col-md-4" key={index}>
+                                    <div className="tip">
                                         <div className="image" style={{ backgroundImage: "url(" + tip.images + ")" }}>
                                         </div>
                                         {/* <img src={tip.images} alt={tip.title}/>    */}
