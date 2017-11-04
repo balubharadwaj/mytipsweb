@@ -1583,12 +1583,15 @@ module.exports =
                                   ' Logout '
                               )
                           ) : _react2.default.createElement(
-                              _Navbar2.default.Brand,
-                              null,
-                              _react2.default.createElement('img', { src: _fABGY2.default, title: 'facebook login', alt: 'facebook', onClick: function onClick() {
+                              'div',
+                              { className: 'btn btn-social btn-facebook', onClick: function onClick() {
                                       return _this3.facebookLogin();
-                                  } })
+                                  } },
+                              _react2.default.createElement('span', { className: 'fa fa-facebook' }),
+                              '  Facebook Sign in'
                           )
+                          /* <img onClick={ () => this.facebookLogin() } src={fABGY} title="facebook login" alt="facebook"/> */
+  
                       )
                   )
               );
@@ -2198,7 +2201,7 @@ module.exports =
   
   
   // module
-  exports.push([module.id, ".Header_navbar-inverse_H4w {\n  background-color: #33FF9B;\n  border-color: #080808;\n}\n\n.Header_navbar_Anu {\n  position: relative;\n  min-height: 65px;\n  margin-bottom: 20px;\n  border: 1px solid transparent;\n}", "", {"version":3,"sources":["/./components/Header/Header.css"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,sBAAsB;CACvB;;AAED;EACE,mBAAmB;EACnB,iBAAiB;EACjB,oBAAoB;EACpB,8BAA8B;CAC/B","file":"Header.css","sourcesContent":[".navbar-inverse {\n  background-color: #33FF9B;\n  border-color: #080808;\n}\n\n.navbar {\n  position: relative;\n  min-height: 65px;\n  margin-bottom: 20px;\n  border: 1px solid transparent;\n}"],"sourceRoot":"webpack://"}]);
+  exports.push([module.id, ".Header_navbar-inverse_H4w {\n/* IE10+ */\n\n/* Mozilla Firefox */\n\n/* Opera */ \nbackground-image: -o-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);\n\n/* Webkit (Safari/Chrome 10) */ \nbackground-image: -webkit-gradient(linear, right top, left top, color-stop(0, #4BF48D), color-stop(100, #4EC3EA));\n\n/* Webkit (Chrome 11+) */ \nbackground-image: -webkit-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);\n\n/* W3C Markup */ \nbackground-image: -webkit-gradient(linear, right top, left top, from(#4BF48D), to(#4EC3EA)); \nbackground-image: linear-gradient(to left, #4BF48D 0%, #4EC3EA 100%);\n  border-color: #080808;\n}\n\n.Header_navbar_Anu {\n  position: relative;\n  min-height: 65px;\n  margin-bottom: 20px;\n  border: 1px solid transparent;\n}\n", "", {"version":3,"sources":["/./components/Header/Header.css"],"names":[],"mappings":"AAAA;AACA,WAAW;;AAGX,qBAAqB;;AAGrB,WAAW;AACX,sEAAsE;;AAEtE,+BAA+B;AAC/B,kHAAkH;;AAElH,yBAAyB;AACzB,2EAA2E;;AAE3E,gBAAgB;AAChB,4FAAqE;AAArE,qEAAqE;EACnE,sBAAsB;CACvB;;AAED;EACE,mBAAmB;EACnB,iBAAiB;EACjB,oBAAoB;EACpB,8BAA8B;CAC/B","file":"Header.css","sourcesContent":[".navbar-inverse {\n/* IE10+ */ \nbackground-image: -ms-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);\n\n/* Mozilla Firefox */ \nbackground-image: -moz-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);\n\n/* Opera */ \nbackground-image: -o-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);\n\n/* Webkit (Safari/Chrome 10) */ \nbackground-image: -webkit-gradient(linear, right top, left top, color-stop(0, #4BF48D), color-stop(100, #4EC3EA));\n\n/* Webkit (Chrome 11+) */ \nbackground-image: -webkit-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);\n\n/* W3C Markup */ \nbackground-image: linear-gradient(to left, #4BF48D 0%, #4EC3EA 100%);\n  border-color: #080808;\n}\n\n.navbar {\n  position: relative;\n  min-height: 65px;\n  margin-bottom: 20px;\n  border: 1px solid transparent;\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
@@ -21519,7 +21522,8 @@ module.exports =
                                                           _react2.default.createElement(
                                                               'label',
                                                               null,
-                                                              'comments: ',
+                                                              _react2.default.createElement('i', { className: 'fa fa-comment-o', 'aria-hidden': 'true' }),
+                                                              ': ',
                                                               _react2.default.createElement(
                                                                   _reactBootstrap.Label,
                                                                   null,
@@ -21533,7 +21537,8 @@ module.exports =
                                                           _react2.default.createElement(
                                                               'label',
                                                               null,
-                                                              'comments: 0'
+                                                              _react2.default.createElement('i', { className: 'fa fa-comment-o', 'aria-hidden': 'true' }),
+                                                              ': 0'
                                                           )
                                                       )
                                                   ),
@@ -21546,7 +21551,8 @@ module.exports =
                                                           _react2.default.createElement(
                                                               'label',
                                                               null,
-                                                              'Likes:'
+                                                              _react2.default.createElement('i', { className: 'fa fa-smile-o', 'aria-hidden': 'true' }),
+                                                              ':'
                                                           ),
                                                           ' ',
                                                           _react2.default.createElement(
@@ -21561,7 +21567,8 @@ module.exports =
                                                           _react2.default.createElement(
                                                               'label',
                                                               null,
-                                                              'favourites:'
+                                                              _react2.default.createElement('i', { className: 'fa fa-heart', 'aria-hidden': 'true' }),
+                                                              ':'
                                                           ),
                                                           ' ',
                                                           _react2.default.createElement(

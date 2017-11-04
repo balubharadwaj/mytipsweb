@@ -118,7 +118,8 @@ class Tips extends React.Component {
 
                     <div className="tipsContainer container">
                         <div className="search">
-                            <i className="fa fa-search" aria-hidden="true"></i>
+
+                        <i className="fa fa-search" aria-hidden="true"></i>
                         <input type="text" placeholder="Search For Tip" onChange={this.change.bind(this)} />
                         
                         <div className="clear"></div>
@@ -141,14 +142,14 @@ class Tips extends React.Component {
                                                     <tr>
                                                         <td><label>category:</label> {tip.category}</td>
                                                         {tip.comments ?
-                                                            <td ><label>comments: <Label>{tip.comments.length}</Label></label> </td>
-                                                            : <td ><label>comments: 0</label></td>}
+                                                            <td ><label><i className="fa fa-comment-o" aria-hidden="true"></i>: <Label>{tip.comments.length}</Label></label> </td>
+                                                            : <td ><label><i className="fa fa-comment-o" aria-hidden="true"></i>: 0</label></td>}
 
 
                                                     </tr>
                                                     <tr>
-                                                        <td><label>Likes:</label> <Label>{tip.likes.length}</Label></td>
-                                                        <td><label>favourites:</label> <Label>{tip.favourites.length}</Label></td>
+                                                        <td><label><i className="fa fa-smile-o" aria-hidden="true"></i>:</label> <Label>{tip.likes.length}</Label></td>
+                                                        <td><label><i className="fa fa-heart" aria-hidden="true"></i>:</label> <Label>{tip.favourites.length}</Label></td>
                                                     </tr>
                                                 </tbody>
                                             </table>

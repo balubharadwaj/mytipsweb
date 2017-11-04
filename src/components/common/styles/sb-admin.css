@@ -1,12 +1,27 @@
 .navbar-inverse {
-    background-color: #33FF9B;
-    border-color: #080808;
-  }
-  
+/* IE10+ */ 
+background-image: -ms-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #4BF48D), color-stop(100, #4EC3EA));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);
+
+/* W3C Markup */ 
+background-image: linear-gradient(to left, #4BF48D 0%, #4EC3EA 100%);
+   border-color: #080808;
+ }
   .navbar {
     position: relative;
     min-height: 65px;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     border: 1px solid transparent;
   }
 
@@ -19,6 +34,7 @@
     float: right;
     margin: 0px 8px 9px 2px;
     border: 1px solid #ccc;
+    padding: 7px;
   }
   .tipsContainer .search i{
     float: right;
@@ -77,8 +93,8 @@
     width: 100%;
     margin-top: 25px;
   }
-  button.btn.btn-lg.btn-primary.active {
-    margin-bottom: 15px;
+  button.btn.btn-lg.btn-primary{
+    margin-top: 10px;
 }
   .tip h3{
     height: 35px;
@@ -129,7 +145,35 @@
     margin: 20px 0 16px;
     border-radius: 4px;
 }
-
+.btn-primary.active{
+  color: #fff !important;
+  background-color: #4ec3e9 !important;
+  border-color: #4ec3e9 !important;
+}
+primary.active:hover {
+  color: #fff;
+  background-color: #4ec3e9 !important;
+  border-color: #4ec3e9 !important;
+}
+.pagination > .active > a {
+  z-index: 3;
+  color: #fff;
+  cursor: default;
+  background-color: #4ec3e9;
+  border-color: #4ec3e9;
+}
+.btn-facebook{
+  margin-top: 13px !important;
+  padding: 10px 40px !important;
+}
+.navbar-inverse .navbar-brand {
+  color: #fff !important;
+  font-size: 25px !important;
+}
+.label-default {
+  background-color: rgba(0, 0, 0,0) !important;
+  color: black;
+}
 .tip .media .media-left img {
   width: 40px;
   height: 40px;
@@ -150,7 +194,7 @@
   height: 69px;
   padding: 5px 15px;
   font-size: 18px;
-  line-height: 54px;
+ line-height: 54px;
 }
 /* style="padding: 0px; height: 60px" */
 
