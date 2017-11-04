@@ -135,7 +135,7 @@ class Tips extends React.Component {
                                         {/* <img src={tip.images} alt={tip.title}/>    */}
                                         <div className="imageDetails">
                                             <div>
-                                                <h3>{tip.title}</h3>
+                                                <h3 >{tip.title}</h3>
                                             </div>
                                             <table>
                                                 <tbody >
@@ -156,7 +156,7 @@ class Tips extends React.Component {
                                             <Button bsStyle="primary" bsSize="large" active
                                                 onClick={(e) => {
                                                     e.preventDefault(); history.push('/tipDetails'); this.handleClick(tip);
-                                                }}>View Post...</Button>
+                                                }}>View Post</Button>
                                         </div>
                                     </div>
                                 </div>

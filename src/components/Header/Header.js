@@ -156,6 +156,7 @@ class Header extends React.Component {
     
   return (
     <div id="wrapper" className="content">
+        <div className="container">
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
           <Navbar.Brand>
@@ -186,6 +187,7 @@ class Header extends React.Component {
           </Nav>
         </Navbar>
   
+    </div>
     </div>
   );
 }
