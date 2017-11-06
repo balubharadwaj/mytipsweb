@@ -128,6 +128,7 @@ class Tip extends React.Component {
                             {/* <div className="image" style={{ backgroundImage: "url(" + tip.images + ")" }}>
                             </div>                                                     */}
                             {<img className="viewimage" src={tip.images} alt={tip.title}/>                               }
+                            <div className="PostDetails">
                             <table>
                                 <tbody> 
                                    
@@ -201,6 +202,7 @@ class Tip extends React.Component {
                                     </div>)
                                 })
                             }
+                            </div>
                             </div>
                         </div> 
                         <div className="col-md-4"></div> 

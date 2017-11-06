@@ -156,6 +156,7 @@ class Header extends React.Component {
     
   return (
     <div id="wrapper" className="content">
+        <div className="container">
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
           <Navbar.Brand>
@@ -175,14 +176,18 @@ class Header extends React.Component {
                 <Navbar.Brand>
                    <span onClick= {this.logout}> Logout </span>
                 </Navbar.Brand> :
-                <Navbar.Brand>
-                <img src={fABGY} title="facebook login" alt="facebook" onClick={ () => this.facebookLogin() } />
-                </Navbar.Brand>
+                
+                 <div className="btn btn-social btn-facebook" onClick={ () => this.facebookLogin() }>
+                    <span className="fa fa-facebook"></span>  Facebook Sign in
+                </div> 
+                /* <img onClick={ () => this.facebookLogin() } src={fABGY} title="facebook login" alt="facebook"/> */
+            
               }
           
           </Nav>
         </Navbar>
   
+    </div>
     </div>
   );
 }

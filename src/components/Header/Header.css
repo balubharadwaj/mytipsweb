@@ -1,5 +1,21 @@
 .navbar-inverse {
-  background-color: #33FF9B;
+/* IE10+ */ 
+background-image: -ms-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #4BF48D), color-stop(100, #4EC3EA));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);
+
+/* W3C Markup */ 
+background-image: linear-gradient(to left, #4BF48D 0%, #4EC3EA 100%);
   border-color: #080808;
 }
 
