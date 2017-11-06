@@ -16,11 +16,21 @@ class Tip extends React.Component {
     state = {
         comment: [],
         error: null,
+        userData: [],
+        postComment: []
     }
 
-    // componentWillMount() {
-        
-    //     this.makeFourite()
+    componentDidMount() {
+        var userData = sessionStorage.getItem("login")
+        userData = JSON.parse(userData)
+        this.setState({
+            userData
+        })
+        this.viewtip()
+    }
+
+    // componentDidUpdate() {
+    //     this.viewtip()
     // }
 
     viewtip(e) {
@@ -69,9 +79,42 @@ class Tip extends React.Component {
     //     })
     //   }
 
+    handleKeyPress(event) {
+        var tip =   JSON.parse(window.sessionStorage.getItem("tip"));  
+        const { userData } = this.state
+      
+        if (event.key === 'Enter') {
+            var data = {
+                commentText: event.target.value,
+                userId: userData.id,
+            }
+            event.target.value = ' '
+            console.log(data)
+            axios.post("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/add/"+ tip.id +"/comment", data)
+            .then(res => {
+                const postComment =  res.data;
+                this.setState({
+                    postComment,
+                    error: null,
+                    
+                });
+            })
+            .catch(err => {
+                this.setState({
+                    loading: false,
+                    error: err
+                })           
+            })
+            this.viewtip()
+            
+          }
+
+    }
+
     render () {
         var tip =   JSON.parse(window.sessionStorage.getItem("tip"));
-        const { comment} = this.state;
+        const { comment, userData} = this.state;
+        console.log(comment)
         return (
             <div>
                 <div className="viewtipContainer container">
@@ -107,18 +150,35 @@ class Tip extends React.Component {
                                 </Highlight>
                             <h2>Comments:</h2>
 
+                            <div>
+                            <Media>
+                                <Media.Left>
+                                    <img width={64} height={64} src={userData.profilePic} alt="Image" />
+                                </Media.Left>
+                                    <Media.Body>
+                                            <input type="text" onKeyPress={this.handleKeyPress.bind(this)}/>
+                                    </Media.Body>
+                            </Media>
+                            </div>
+
                             {
+                            
                                 comment.map((comments, index) =>{
                                     return(<div key={index}>
                                         <Media>
+                                        { comments.user ? <Media.Left>
+                                          <img width={64} height={64} src={comments.user.image} alt="Image"/>
+                                        </Media.Left> :
                                         <Media.Left>
                                           <img width={64} height={64} src="http://ieee.ece.ufl.edu/img/profile-pics/default_person.png" alt="Image"/>
                                         </Media.Left>
+                                        }
                                         <Media.Body>
                                         { comments.user ?
                                           <Media.Heading>{comments.user.firstName}</Media.Heading> : <Media.Heading>user name</Media.Heading>
                                         }
                                           <p>{comments.commentText}</p>
+                                          <p>{comments.createdAt}</p>
                                           { comments.replyComments ? 
                                           <div> {
                                               comments.replyComments.map((rc,index1) => {
