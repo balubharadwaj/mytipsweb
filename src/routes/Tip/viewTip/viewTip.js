@@ -98,6 +98,7 @@ class Tip extends React.Component {
                     error: null,
                     
                 });
+                this.viewtip()                
             })
             .catch(err => {
                 this.setState({
@@ -105,7 +106,6 @@ class Tip extends React.Component {
                     error: err
                 })           
             })
-            this.viewtip()
             
           }
 
