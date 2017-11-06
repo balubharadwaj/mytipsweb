@@ -2,22 +2,25 @@ import React, { PropTypes } from 'react';
 import {Button, Label, Media} from 'react-bootstrap';
 var Highlight = require('react-highlight');
 import axios from 'axios';
+var _ = require('lodash')
 
 
 
 class Tip extends React.Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     this.viewtip = this.viewtip.bind(this);
-    //     this.viewtip();
-    // }
+    constructor(props) {
+        super(props);
+        this.makeFovourite = this.makeFovourite.bind(this);
+        //this.viewtip();
+    }
 
     state = {
         comment: [],
         error: null,
         userData: [],
-        postComment: []
+        postComment: [],
+        likes: [],
+        initfavourite: []
     }
 
     componentDidMount() {
@@ -27,18 +30,16 @@ class Tip extends React.Component {
             userData
         })
         this.viewtip()
+        
     }
 
-    // componentDidUpdate() {
-    //     this.viewtip()
-    // }
+
 
     viewtip(e) {
         var tip =   JSON.parse(window.sessionStorage.getItem("tip"));        
         axios.get("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/"+tip.id+"/listComments")
         .then(res => {
             const comment =  res.data;
-            console.log(comment)
             this.setState({
                 comment,
                 error: null,
@@ -53,43 +54,40 @@ class Tip extends React.Component {
         })
     }
 
-    // makeFourite() {
-    //     var tip =   JSON.parse(window.sessionStorage.getItem("tip"));        
-    //     //console.log(e)
-    //     var a = []
-    //     a = sessionStorage.getItem("login")
-    //     a = JSON.parse(a);
-    //     var b = []
-    //     b.push(a)        
-    //     console.log(b[0].id)
-    //     axios.post("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/favorite/"+tip.id+"/"+b[0].id)
-    //     .then(res => {
-    //         const likes =  res.data;
-    //         console.log(likes)
-    //         this.setState({
-    //             likes,
-    //             error: null,
+    makeFovourite() {
+        var tip =   JSON.parse(window.sessionStorage.getItem("tip"));        
+        var a = []
+        a = sessionStorage.getItem("login")
+        a = JSON.parse(a);
+        var b = []
+        b.push(a)        
+        axios.post("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/favorite/"+tip.id+"/"+b[0].id)
+        .then(res => {
+            const likes =  res.data;
+            this.setState({
+                likes,
+                error: null,
                 
-    //         });
-    //     })
-    //     .catch(err => {
-    //         this.setState({
-    //             error: err
-    //         })           
-    //     })
-    //   }
+            });
+        })
+        .catch(err => {
+            this.setState({
+                error: err
+            })           
+        })
+      }
 
     handleKeyPress(event) {
         var tip =   JSON.parse(window.sessionStorage.getItem("tip"));  
         const { userData } = this.state
-      
+      if (userData != null) 
+      {
         if (event.key === 'Enter') {
             var data = {
                 commentText: event.target.value,
                 userId: userData.id,
             }
             event.target.value = ' '
-            console.log(data)
             axios.post("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/add/"+ tip.id +"/comment", data)
             .then(res => {
                 const postComment =  res.data;
@@ -108,13 +106,40 @@ class Tip extends React.Component {
             })
             
           }
+        } else {
+            alert("please login to Comment")
+        }
 
     }
 
+    getFovourite() {
+
+        var a = []
+        a = sessionStorage.getItem("login")
+        a = JSON.parse(a);
+        var b = []
+        b.push(a)        
+        axios.get("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/"+b[0].id+"/favourites")
+        .then(res => {
+            const initfavourite =  res.data;
+
+            this.setState({
+                initfavourite,
+                error: null,                
+            });
+        })
+        .catch(err => {
+            this.setState({
+                error: err
+            })           
+        })
+
+      }
+
     render () {
         var tip =   JSON.parse(window.sessionStorage.getItem("tip"));
-        const { comment, userData} = this.state;
-        console.log(comment)
+        const { comment, userData, likes, initfavourite} = this.state;
+        let comment1 = comment.sort((a, b) => new Date(...b.createdAt.split('/').reverse()) - new Date(...a.createdAt.split('/').reverse()));
         return (
             <div>
                 <div className="viewtipContainer container">
@@ -127,7 +152,12 @@ class Tip extends React.Component {
                             </div>   */}
                             {/* <div className="image" style={{ backgroundImage: "url(" + tip.images + ")" }}>
                             </div>                                                     */}
-                            {<img className="viewimage" src={tip.images} alt={tip.title}/>                               }
+                            <img className="viewimage" src={tip.images} alt={tip.title}/>    
+                            <div className="clearfix"></div>
+                            { likes.favourite ?   
+                               <i className="fa fa-heart" aria-hidden="true" onClick={this.makeFovourite}></i>  :                     
+                               <i className="fa fa-heart-o" aria-hidden="true" onClick={this.makeFovourite}></i>
+                            }
                             <div className="PostDetails">
                             <table>
                                 <tbody> 
@@ -152,9 +182,15 @@ class Tip extends React.Component {
 
                             <div>
                             <Media>
-                                <Media.Left>
+                                {userData ?
+                                    <Media.Left>
                                     <img width={64} height={64} src={userData.profilePic} alt="Image" />
+                                </Media.Left> :
+                                <Media.Left>
+                                    <img width={64} height={64} src="http://ieee.ece.ufl.edu/img/profile-pics/default_person.png" alt="Image" />
                                 </Media.Left>
+                                }
+                                
                                     <Media.Body>
                                             <input type="text" onKeyPress={this.handleKeyPress.bind(this)}/>
                                     </Media.Body>
@@ -163,7 +199,7 @@ class Tip extends React.Component {
 
                             {
                             
-                                comment.map((comments, index) =>{
+                                comment1.map((comments, index) =>{
                                     return(<div key={index}>
                                         <Media>
                                         { comments.user ? <Media.Left>
@@ -178,7 +214,7 @@ class Tip extends React.Component {
                                           <Media.Heading>{comments.user.firstName}</Media.Heading> : <Media.Heading>user name</Media.Heading>
                                         }
                                           <p>{comments.commentText}</p>
-                                          <p>{comments.createdAt}</p>
+                                          <p>{new Date(comments.createdAt).toDateString()}</p>
                                           { comments.replyComments ? 
                                           <div> {
                                               comments.replyComments.map((rc,index1) => {
