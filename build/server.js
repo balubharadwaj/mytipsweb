@@ -21681,13 +21681,9 @@ module.exports =
   
           return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Tip.__proto__ || (0, _getPrototypeOf2.default)(Tip)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
               comment: [],
-              error: null
-  
-              // componentWillMount() {
-  
-              //     this.makeFourite()
-              // }
-  
+              error: null,
+              userData: [],
+              postComment: []
           }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
       }
   
@@ -21698,6 +21694,21 @@ module.exports =
       // }
   
       (0, _createClass3.default)(Tip, [{
+          key: 'componentDidMount',
+          value: function componentDidMount() {
+              var userData = sessionStorage.getItem("login");
+              userData = JSON.parse(userData);
+              this.setState({
+                  userData: userData
+              });
+              this.viewtip();
+          }
+  
+          // componentDidUpdate() {
+          //     this.viewtip()
+          // }
+  
+      }, {
           key: 'viewtip',
           value: function viewtip(e) {
               var _this2 = this;
@@ -21746,11 +21757,46 @@ module.exports =
           //   }
   
       }, {
+          key: 'handleKeyPress',
+          value: function handleKeyPress(event) {
+              var _this3 = this;
+  
+              var tip = JSON.parse(window.sessionStorage.getItem("tip"));
+              var userData = this.state.userData;
+  
+  
+              if (event.key === 'Enter') {
+                  var data = {
+                      commentText: event.target.value,
+                      userId: userData.id
+                  };
+                  event.target.value = ' ';
+                  console.log(data);
+                  _axios2.default.post("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/add/" + tip.id + "/comment", data).then(function (res) {
+                      var postComment = res.data;
+                      _this3.setState({
+                          postComment: postComment,
+                          error: null
+  
+                      });
+                  }).catch(function (err) {
+                      _this3.setState({
+                          loading: false,
+                          error: err
+                      });
+                  });
+                  this.viewtip();
+              }
+          }
+      }, {
           key: 'render',
           value: function render() {
               var tip = JSON.parse(window.sessionStorage.getItem("tip"));
-              var comment = this.state.comment;
+              var _state = this.state,
+                  comment = _state.comment,
+                  userData = _state.userData;
   
+              console.log(comment);
               return _react2.default.createElement(
                   'div',
                   null,
@@ -21860,6 +21906,24 @@ module.exports =
                                           null,
                                           'Comments:'
                                       ),
+                                      _react2.default.createElement(
+                                          'div',
+                                          null,
+                                          _react2.default.createElement(
+                                              _reactBootstrap.Media,
+                                              null,
+                                              _react2.default.createElement(
+                                                  _reactBootstrap.Media.Left,
+                                                  null,
+                                                  _react2.default.createElement('img', { width: 64, height: 64, src: userData.profilePic, alt: 'Image' })
+                                              ),
+                                              _react2.default.createElement(
+                                                  _reactBootstrap.Media.Body,
+                                                  null,
+                                                  _react2.default.createElement('input', { type: 'text', onKeyPress: this.handleKeyPress.bind(this) })
+                                              )
+                                          )
+                                      ),
                                       comment.map(function (comments, index) {
                                           return _react2.default.createElement(
                                               'div',
@@ -21867,7 +21931,11 @@ module.exports =
                                               _react2.default.createElement(
                                                   _reactBootstrap.Media,
                                                   null,
-                                                  _react2.default.createElement(
+                                                  comments.user ? _react2.default.createElement(
+                                                      _reactBootstrap.Media.Left,
+                                                      null,
+                                                      _react2.default.createElement('img', { width: 64, height: 64, src: comments.user.image, alt: 'Image' })
+                                                  ) : _react2.default.createElement(
                                                       _reactBootstrap.Media.Left,
                                                       null,
                                                       _react2.default.createElement('img', { width: 64, height: 64, src: 'http://ieee.ece.ufl.edu/img/profile-pics/default_person.png', alt: 'Image' })
@@ -21888,6 +21956,11 @@ module.exports =
                                                           'p',
                                                           null,
                                                           comments.commentText
+                                                      ),
+                                                      _react2.default.createElement(
+                                                          'p',
+                                                          null,
+                                                          comments.createdAt
                                                       ),
                                                       comments.replyComments ? _react2.default.createElement(
                                                           'div',

@@ -37,10 +37,6 @@ background: rgba(0, 0, 0,0);
       width: 850px;
       margin: auto;
   }
-  .tipsContainer {
-      /* width: 1500px; */
-      /* font-size: 18px; */
-  }
 
   .tipsContainer aside {
       width: 500px;
@@ -57,12 +53,8 @@ background: rgba(0, 0, 0,0);
     padding: 15px;
   }
   .tipsContainer .tip {
-      /* width: 400px; */
       margin-bottom: 20px;
       font-family: 'Poppins', sans-serif;
-      /* margin-left: 75px; */
-      /* float: left; */
-      /* height: 580px; */
       border: 1px solid #ccc;
   }
   
@@ -87,6 +79,8 @@ background: rgba(0, 0, 0,0);
   }
   button.btn.btn-lg.btn-primary{
     margin-top: 10px;
+    padding: 3px 5px;
+    border-radius: 0px;
 }
   .tip h3{
     height: 35px;
@@ -99,11 +93,7 @@ background: rgba(0, 0, 0,0);
   }
 
 
-  .viewtipContainer {
-    /* width: 1000px; */
-    /* margin: auto; */
-    /* font-size: 20px; */
-  }
+
 
   .viewtipContainer img {
     /* width: 100%; */
