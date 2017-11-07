@@ -3,8 +3,8 @@ background: rgba(0, 0, 0,0);
  }
   .navbar {
     position: relative;
-    min-height: 65px;
-    /* margin-bottom: 50px; */
+    min-height: 0px !important;
+    margin-bottom: 0px !important;
     border: 1px solid transparent;
   }
   .navbar-right{
@@ -14,7 +14,16 @@ background: rgba(0, 0, 0,0);
     font-weight: bold;
     font-size: 32px;
   }
-
+  .navbar.navbar-default{
+    padding: 10px 0px;
+  }
+  .navbar-inverse .navbar-nav > li > a {
+    color: #fff !important;
+  }
+  .navbar-inverse .navbar-nav > li > a:hover {
+    color: #fff !important;
+    cursor: pointer;
+  }
   .tipsContainer .search input[type=text] {
     float: right;
     margin: 0px 8px 9px 2px;
@@ -75,7 +84,10 @@ background: rgba(0, 0, 0,0);
   }
   .tip table {
     width: 100%;
-    margin-top: 25px;
+  }
+  .tip table label{
+    font-weight: 400 !important;
+    font-size: 14px;
   }
   button.btn.btn-lg.btn-primary{
     margin-top: 10px;
@@ -84,28 +96,73 @@ background: rgba(0, 0, 0,0);
 }
   .tip h3{
     height: 35px;
-    line-height: 28px;
-    font-size: 22px;
+    line-height: 16px;
+    font-size: 16px;
     font-weight: 700;
+    margin: 0px;
   }
   .tip table tr {
     padding: 0 8px;
   }
-
-
-
-
   .viewtipContainer img {
-    /* width: 100%; */
+    width: 100%;
     height: auto;
   }
-  /* categoryContainer {
-    width: 400px;
-    margin-bottom: 20px;
-    margin-left: 75px;
-    float: left;
-  } */
-
+  .comments .commemtAdd {
+    background-color: #f2f2f2;
+    margin-bottom: 15px;
+    margin-right: -13px;
+}
+.comments .commemtAdd textarea {
+  border: 1px solid #fff;
+  margin: 10px 0px;
+  padding: 6px 13px;
+  resize: none;
+}
+.comments .commentsList img{
+  margin: 13px -5px;
+}
+.comments .commentsList .commentListText{
+    background-color: #f2f2f2;
+    padding: 16px 22px;
+}
+.comments .commentsList .commentListText::before{
+  width: 0;
+  height: 0;
+  content: "";
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  display: inline-block;
+  position: absolute;
+  border-right: 10px solid #f2f2f2;
+  left: -10px;
+}
+.comments .commentsList{
+  border-bottom: 4px solid #fff;
+}
+.comments .commemtAdd  img{
+  margin: 20px 10px;
+}
+.navbar-nav > li > a {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+.navbar-nav > li > a {
+  line-height: 30px !important;
+  font-size: 20px;
+}
+.navbar-default{
+  background-color: transparent !important;
+}
+.navbar-inverse .navbar-nav > .active > a,
+ .navbar-inverse .navbar-nav > .active > a:focus,
+  .navbar-inverse .navbar-nav > .active > a:hover {
+  color: #fff;
+  background-color: transparent;
+}
+.navbar-collapse{
+  padding-left: 0px !important;
+}
   .category {
     text-align: center;
     border: 1px solid #ccc;
@@ -132,6 +189,10 @@ background: rgba(0, 0, 0,0);
     margin: 20px 0 16px;
     border-radius: 4px;
 }
+.btn-primary{
+  background-color: #4ec3e9 !important;
+  border-color: #4ec3e9 !important;
+}
 .btn-primary.active{
   color: #fff !important;
   background-color: #4ec3e9 !important;
@@ -142,6 +203,18 @@ primary.active:hover {
   background-color: #4ec3e9 !important;
   border-color: #4ec3e9 !important;
 }
+.logout{
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+}
+.custom-search-input {
+  margin-bottom: 15px;
+}
+.page-wrapper {
+  margin-top: 15px;
+}
 .pagination > .active > a {
   z-index: 3;
   color: #fff;
@@ -150,8 +223,7 @@ primary.active:hover {
   border-color: #4ec3e9;
 }
 .btn-facebook{
-  margin-top: 13px !important;
-  padding: 10px 40px !important;
+  padding: 4px 36px !important;
 }
 .navbar-inverse .navbar-brand {
   color: #fff !important;
@@ -180,6 +252,17 @@ primary.active:hover {
 .viewTip .PostDetails{
   padding: 4px 30px;
 }
+.viewTip .PostDetails h2{
+  font-size: 20px;
+}   
+.viewTip .PostDetails h4{ 
+  font-size: 14px;
+  font-weight: 700;
+}
+.viewTip .PostDetails span{
+  font-size: 12px;
+}
+
 .content{
   /* IE10+ */ 
 background-image: -ms-linear-gradient(right, #4BF48D 0%, #4EC3EA 100%);
