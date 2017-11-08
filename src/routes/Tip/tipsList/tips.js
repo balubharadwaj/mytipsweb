@@ -117,17 +117,31 @@ class Tips extends React.Component {
                 <div>
 
                     <div className="tipsContainer container">
-                        <div className="search">
+                        {/* <div className="search">
 
                         <i className="fa fa-search" aria-hidden="true"></i>
                         <input type="text" placeholder="Search For Tip" onChange={this.change.bind(this)} />
                         
                         <div className="clear"></div>
+                        </div> */}
+
+                        <div className="custom-search-input">
+                            
+                            <div className="input-group col-md-3 pull-right">
+                                <input type="text" className="  search-query form-control" placeholder="Search For Tip" onChange={this.change.bind(this)} />
+                                <span className="input-group-btn">
+                                    <button className="btn btn-primary" type="button">
+                                        <span className=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                    
+                            <div className="clearfix"></div>
                         </div>
-                       
+                        <div className="row">
                         {pageOfItems.map((tip, index) => {
                             return (
-
+                                
                                 <div className="col-md-4" key={index}>
                                     <div className="tip">
                                         <div className="image" style={{ backgroundImage: "url(" + tip.images + ")" }}>
@@ -135,7 +149,7 @@ class Tips extends React.Component {
                                         {/* <img src={tip.images} alt={tip.title}/>    */}
                                         <div className="imageDetails">
                                             <div>
-                                                <h3 >{tip.title}</h3>
+                                                <h3>{tip.title.slice(0,50)}{tip.title.length >=50 ? '...':''}</h3>
                                             </div>
                                             <table>
                                                 <tbody >
@@ -160,11 +174,12 @@ class Tips extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-
+                            
                             )
 
 
                         })}
+                        </div>
                         <div className="clear"></div>
                         <Pagination items={tips} onChangePage={this.onChangePage} />
 

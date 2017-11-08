@@ -1399,18 +1399,14 @@ module.exports =
   
   var _fABGY2 = _interopRequireDefault(_fABGY);
   
+  var _mytips = __webpack_require__(51);
+  
+  var _mytips2 = _interopRequireDefault(_mytips);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
+  // const logo = require('./logo.png');
   
-  var logo = __webpack_require__(51);
   
   var Header = function (_React$Component) {
       (0, _inherits3.default)(Header, _React$Component);
@@ -1545,58 +1541,69 @@ module.exports =
                   { id: 'wrapper', className: 'content' },
                   _react2.default.createElement(
                       'div',
-                      { className: 'container' },
+                      { className: 'container navbar-inverse' },
                       _react2.default.createElement(
-                          _Navbar2.default,
-                          { inverse: true, collapseOnSelect: true },
+                          'nav',
+                          { className: 'navbar navbar-default', role: 'navigation' },
                           _react2.default.createElement(
-                              _Navbar2.default.Header,
-                              null,
+                              'div',
+                              { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
                               _react2.default.createElement(
-                                  _Navbar2.default.Brand,
-                                  null,
+                                  'ul',
+                                  { className: 'nav navbar-nav' },
                                   _react2.default.createElement(
-                                      'a',
-                                      { href: '', onClick: function onClick(e) {
-                                              e.preventDefault();_history2.default.push('/');
-                                          } },
-                                      '\xA0Tips'
+                                      'li',
+                                      null,
+                                      _react2.default.createElement('img', { src: _mytips2.default, alt: 'Image' })
                                   )
                               ),
                               _react2.default.createElement(
-                                  _Navbar2.default.Brand,
-                                  null,
+                                  'ul',
+                                  { className: 'nav navbar-nav' },
                                   _react2.default.createElement(
-                                      'a',
-                                      { href: '', onClick: function onClick(e) {
-                                              e.preventDefault();_history2.default.push('/category');
-                                          } },
-                                      '\xA0Category'
+                                      'li',
+                                      { className: 'active' },
+                                      _react2.default.createElement(
+                                          'a',
+                                          { onClick: function onClick(e) {
+                                                  e.preventDefault();_history2.default.push('/');
+                                              } },
+                                          'Tips'
+                                      )
+                                  ),
+                                  _react2.default.createElement(
+                                      'li',
+                                      null,
+                                      _react2.default.createElement(
+                                          'a',
+                                          { href: '', onClick: function onClick(e) {
+                                                  e.preventDefault();_history2.default.push('/category');
+                                              } },
+                                          'Category'
+                                      )
                                   )
                               ),
-                              _react2.default.createElement(_Navbar2.default.Toggle, null)
-                          ),
-                          _react2.default.createElement(
-                              _reactBootstrap.Nav,
-                              { pullRight: true },
-                              sessionStorage.login ? _react2.default.createElement(
-                                  _Navbar2.default.Brand,
-                                  null,
-                                  _react2.default.createElement(
-                                      'span',
-                                      { onClick: this.logout },
-                                      ' Logout '
+                              _react2.default.createElement(
+                                  'ul',
+                                  { className: 'nav navbar-nav pull-right' },
+                                  sessionStorage.login ? _react2.default.createElement(
+                                      'li',
+                                      null,
+                                      _react2.default.createElement(
+                                          'span',
+                                          { className: 'logout', onClick: this.logout },
+                                          ' Logout '
+                                      )
+                                  ) : _react2.default.createElement(
+                                      'li',
+                                      { className: 'btn btn-social btn-facebook', onClick: function onClick() {
+                                              return _this3.facebookLogin();
+                                          } },
+                                      _react2.default.createElement('span', { className: 'fa fa-facebook' }),
+                                      '  Facebook Sign in'
                                   )
-                              ) : _react2.default.createElement(
-                                  'div',
-                                  { className: 'btn btn-social btn-facebook', onClick: function onClick() {
-                                          return _this3.facebookLogin();
-                                      } },
-                                  _react2.default.createElement('span', { className: 'fa fa-facebook' }),
-                                  '  Facebook Sign in'
-                              )
-                              /* <img onClick={ () => this.facebookLogin() } src={fABGY} title="facebook login" alt="facebook"/> */
-  
+                              ),
+                              _react2.default.createElement('div', { className: 'clearfix' })
                           )
                       )
                   )
@@ -1614,6 +1621,15 @@ module.exports =
   //       $(".navbar-collapse").addClass('collapse');
   //     }
   //   }
+  
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
   
   exports.default = Header;
 
@@ -2231,7 +2247,7 @@ module.exports =
 /* 51 */
 /***/ (function(module, exports) {
 
-  module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAmCAYAAACyAQkgAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpGODdGMTE3NDA3MjA2ODExODA4M0E3MjY3MTQwRTY5RSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1RTIzNTA3RUM5OEExMUU0QjRCOUUwQTIyNkYzQTlCNiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1RTIzNTA3REM5OEExMUU0QjRCOUUwQTIyNkYzQTlCNiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Rjk3RjExNzQwNzIwNjgxMTgwODNBNzI2NzE0MEU2OUUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Rjg3RjExNzQwNzIwNjgxMTgwODNBNzI2NzE0MEU2OUUiLz4gPC9yZGY6RGVzY3Jp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"
+  module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAAjCAYAAAApF3xtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCMjI5MzgwQTg2NUYxMUU3ODgyNUNGRkQyRDk0RThDQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCMjI5MzgwQjg2NUYxMUU3ODgyNUNGRkQyRDk0RThDQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkIyMjkzODA4ODY1RjExRTc4ODI1Q0ZGRDJEOTRFOENDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkIyMjkzODA5ODY1RjExRTc4ODI1Q0ZGRDJEOTRFOENDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+T0kl4gAADGdJREFUeNrsWgdUVFca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"
 
 /***/ }),
 /* 52 */
@@ -21349,7 +21365,7 @@ module.exports =
   
   var _history2 = _interopRequireDefault(_history);
   
-  var _Pagination = __webpack_require__(164);
+  var _Pagination = __webpack_require__(165);
   
   var _Pagination2 = _interopRequireDefault(_Pagination);
   
@@ -21488,127 +21504,144 @@ module.exports =
                           { className: 'tipsContainer container' },
                           _react2.default.createElement(
                               'div',
-                              { className: 'search' },
-                              _react2.default.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' }),
-                              _react2.default.createElement('input', { type: 'text', placeholder: 'Search For Tip', onChange: this.change.bind(this) }),
-                              _react2.default.createElement('div', { className: 'clear' })
-                          ),
-                          pageOfItems.map(function (tip, index) {
-                              return _react2.default.createElement(
+                              { className: 'custom-search-input' },
+                              _react2.default.createElement(
                                   'div',
-                                  { className: 'col-md-4', key: index },
+                                  { className: 'input-group col-md-3 pull-right' },
+                                  _react2.default.createElement('input', { type: 'text', className: '  search-query form-control', placeholder: 'Search For Tip', onChange: this.change.bind(this) }),
                                   _react2.default.createElement(
+                                      'span',
+                                      { className: 'input-group-btn' },
+                                      _react2.default.createElement(
+                                          'button',
+                                          { className: 'btn btn-primary', type: 'button' },
+                                          _react2.default.createElement('span', { className: ' glyphicon glyphicon-search' })
+                                      )
+                                  )
+                              ),
+                              _react2.default.createElement('div', { className: 'clearfix' })
+                          ),
+                          _react2.default.createElement(
+                              'div',
+                              { className: 'row' },
+                              pageOfItems.map(function (tip, index) {
+                                  return _react2.default.createElement(
                                       'div',
-                                      { className: 'tip' },
-                                      _react2.default.createElement('div', { className: 'image', style: { backgroundImage: "url(" + tip.images + ")" } }),
+                                      { className: 'col-md-4', key: index },
                                       _react2.default.createElement(
                                           'div',
-                                          { className: 'imageDetails' },
+                                          { className: 'tip' },
+                                          _react2.default.createElement('div', { className: 'image', style: { backgroundImage: "url(" + tip.images + ")" } }),
                                           _react2.default.createElement(
                                               'div',
-                                              null,
+                                              { className: 'imageDetails' },
                                               _react2.default.createElement(
-                                                  'h3',
-                                                  null,
-                                                  tip.title
-                                              )
-                                          ),
-                                          _react2.default.createElement(
-                                              'table',
-                                              null,
-                                              _react2.default.createElement(
-                                                  'tbody',
+                                                  'div',
                                                   null,
                                                   _react2.default.createElement(
-                                                      'tr',
+                                                      'h3',
+                                                      null,
+                                                      tip.title.slice(0, 50),
+                                                      tip.title.length >= 50 ? '...' : ''
+                                                  )
+                                              ),
+                                              _react2.default.createElement(
+                                                  'table',
+                                                  null,
+                                                  _react2.default.createElement(
+                                                      'tbody',
                                                       null,
                                                       _react2.default.createElement(
-                                                          'td',
+                                                          'tr',
                                                           null,
                                                           _react2.default.createElement(
-                                                              'label',
+                                                              'td',
                                                               null,
-                                                              'category:'
+                                                              _react2.default.createElement(
+                                                                  'label',
+                                                                  null,
+                                                                  'category:'
+                                                              ),
+                                                              ' ',
+                                                              tip.category
                                                           ),
-                                                          ' ',
-                                                          tip.category
+                                                          tip.comments ? _react2.default.createElement(
+                                                              'td',
+                                                              null,
+                                                              _react2.default.createElement(
+                                                                  'label',
+                                                                  null,
+                                                                  _react2.default.createElement('i', { className: 'fa fa-comment-o', 'aria-hidden': 'true' }),
+                                                                  ': ',
+                                                                  _react2.default.createElement(
+                                                                      _reactBootstrap.Label,
+                                                                      null,
+                                                                      tip.comments.length
+                                                                  )
+                                                              ),
+                                                              ' '
+                                                          ) : _react2.default.createElement(
+                                                              'td',
+                                                              null,
+                                                              _react2.default.createElement(
+                                                                  'label',
+                                                                  null,
+                                                                  _react2.default.createElement('i', { className: 'fa fa-comment-o', 'aria-hidden': 'true' }),
+                                                                  ': 0'
+                                                              )
+                                                          )
                                                       ),
-                                                      tip.comments ? _react2.default.createElement(
-                                                          'td',
+                                                      _react2.default.createElement(
+                                                          'tr',
                                                           null,
                                                           _react2.default.createElement(
-                                                              'label',
+                                                              'td',
                                                               null,
-                                                              _react2.default.createElement('i', { className: 'fa fa-comment-o', 'aria-hidden': 'true' }),
-                                                              ': ',
+                                                              _react2.default.createElement(
+                                                                  'label',
+                                                                  null,
+                                                                  _react2.default.createElement('i', { className: 'fa fa-smile-o', 'aria-hidden': 'true' }),
+                                                                  ':'
+                                                              ),
+                                                              ' ',
                                                               _react2.default.createElement(
                                                                   _reactBootstrap.Label,
                                                                   null,
-                                                                  tip.comments.length
+                                                                  tip.likes.length
                                                               )
                                                           ),
-                                                          ' '
-                                                      ) : _react2.default.createElement(
-                                                          'td',
-                                                          null,
                                                           _react2.default.createElement(
-                                                              'label',
+                                                              'td',
                                                               null,
-                                                              _react2.default.createElement('i', { className: 'fa fa-comment-o', 'aria-hidden': 'true' }),
-                                                              ': 0'
-                                                          )
-                                                      )
-                                                  ),
-                                                  _react2.default.createElement(
-                                                      'tr',
-                                                      null,
-                                                      _react2.default.createElement(
-                                                          'td',
-                                                          null,
-                                                          _react2.default.createElement(
-                                                              'label',
-                                                              null,
-                                                              _react2.default.createElement('i', { className: 'fa fa-smile-o', 'aria-hidden': 'true' }),
-                                                              ':'
-                                                          ),
-                                                          ' ',
-                                                          _react2.default.createElement(
-                                                              _reactBootstrap.Label,
-                                                              null,
-                                                              tip.likes.length
-                                                          )
-                                                      ),
-                                                      _react2.default.createElement(
-                                                          'td',
-                                                          null,
-                                                          _react2.default.createElement(
-                                                              'label',
-                                                              null,
-                                                              _react2.default.createElement('i', { className: 'fa fa-heart', 'aria-hidden': 'true' }),
-                                                              ':'
-                                                          ),
-                                                          ' ',
-                                                          _react2.default.createElement(
-                                                              _reactBootstrap.Label,
-                                                              null,
-                                                              tip.favourites.length
+                                                              _react2.default.createElement(
+                                                                  'label',
+                                                                  null,
+                                                                  _react2.default.createElement('i', { className: 'fa fa-heart', 'aria-hidden': 'true' }),
+                                                                  ':'
+                                                              ),
+                                                              ' ',
+                                                              _react2.default.createElement(
+                                                                  _reactBootstrap.Label,
+                                                                  null,
+                                                                  tip.favourites.length
+                                                              )
                                                           )
                                                       )
                                                   )
+                                              ),
+                                              _react2.default.createElement(
+                                                  _reactBootstrap.Button,
+                                                  { bsStyle: 'primary', bsSize: 'large', active: true,
+                                                      onClick: function onClick(e) {
+                                                          e.preventDefault();_history2.default.push('/tipDetails');_this4.handleClick(tip);
+                                                      } },
+                                                  'View Post'
                                               )
-                                          ),
-                                          _react2.default.createElement(
-                                              _reactBootstrap.Button,
-                                              { bsStyle: 'primary', bsSize: 'large', active: true,
-                                                  onClick: function onClick(e) {
-                                                      e.preventDefault();_history2.default.push('/tipDetails');_this4.handleClick(tip);
-                                                  } },
-                                              'View Post'
                                           )
                                       )
-                                  )
-                              );
-                          }),
+                                  );
+                              })
+                          ),
                           _react2.default.createElement('div', { className: 'clear' }),
                           _react2.default.createElement(_Pagination2.default, { items: tips, onChangePage: this.onChangePage })
                       )
@@ -21630,6 +21663,10 @@ module.exports =
   Object.defineProperty(exports, "__esModule", {
       value: true
   });
+  
+  var _toConsumableArray2 = __webpack_require__(2);
+  
+  var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
   
   var _getPrototypeOf = __webpack_require__(29);
   
@@ -21665,39 +21702,41 @@ module.exports =
   
   var Highlight = __webpack_require__(163);
   
+  var _ = __webpack_require__(164);
+  
   var Tip = function (_React$Component) {
       (0, _inherits3.default)(Tip, _React$Component);
   
-      function Tip() {
-          var _ref;
-  
-          var _temp, _this, _ret;
-  
+      function Tip(props) {
           (0, _classCallCheck3.default)(this, Tip);
   
-          for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-              args[_key] = arguments[_key];
-          }
+          var _this = (0, _possibleConstructorReturn3.default)(this, (Tip.__proto__ || (0, _getPrototypeOf2.default)(Tip)).call(this, props));
   
-          return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Tip.__proto__ || (0, _getPrototypeOf2.default)(Tip)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+          _this.state = {
               comment: [],
-              error: null
+              error: null,
+              userData: [],
+              postComment: [],
+              likes: [],
+              initfavourite: []
+          };
   
-              // componentWillMount() {
-  
-              //     this.makeFourite()
-              // }
-  
-          }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+          _this.makeFovourite = _this.makeFovourite.bind(_this);
+          //this.viewtip();
+          return _this;
       }
   
-      // constructor(props) {
-      //     super(props);
-      //     this.viewtip = this.viewtip.bind(this);
-      //     this.viewtip();
-      // }
-  
       (0, _createClass3.default)(Tip, [{
+          key: 'componentDidMount',
+          value: function componentDidMount() {
+              var userData = sessionStorage.getItem("login");
+              userData = JSON.parse(userData);
+              this.setState({
+                  userData: userData
+              });
+              this.viewtip();
+          }
+      }, {
           key: 'viewtip',
           value: function viewtip(e) {
               var _this2 = this;
@@ -21705,7 +21744,6 @@ module.exports =
               var tip = JSON.parse(window.sessionStorage.getItem("tip"));
               _axios2.default.get("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/" + tip.id + "/listComments").then(function (res) {
                   var comment = res.data;
-                  console.log(comment);
                   _this2.setState({
                       comment: comment,
                       error: null
@@ -21718,39 +21756,100 @@ module.exports =
                   });
               });
           }
+      }, {
+          key: 'makeFovourite',
+          value: function makeFovourite() {
+              var _this3 = this;
   
-          // makeFourite() {
-          //     var tip =   JSON.parse(window.sessionStorage.getItem("tip"));        
-          //     //console.log(e)
-          //     var a = []
-          //     a = sessionStorage.getItem("login")
-          //     a = JSON.parse(a);
-          //     var b = []
-          //     b.push(a)        
-          //     console.log(b[0].id)
-          //     axios.post("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/favorite/"+tip.id+"/"+b[0].id)
-          //     .then(res => {
-          //         const likes =  res.data;
-          //         console.log(likes)
-          //         this.setState({
-          //             likes,
-          //             error: null,
+              var tip = JSON.parse(window.sessionStorage.getItem("tip"));
+              var a = [];
+              a = sessionStorage.getItem("login");
+              a = JSON.parse(a);
+              var b = [];
+              b.push(a);
+              _axios2.default.post("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/favorite/" + tip.id + "/" + b[0].id).then(function (res) {
+                  var likes = res.data;
+                  _this3.setState({
+                      likes: likes,
+                      error: null
   
-          //         });
-          //     })
-          //     .catch(err => {
-          //         this.setState({
-          //             error: err
-          //         })           
-          //     })
-          //   }
+                  });
+              }).catch(function (err) {
+                  _this3.setState({
+                      error: err
+                  });
+              });
+          }
+      }, {
+          key: 'handleKeyPress',
+          value: function handleKeyPress(event) {
+              var _this4 = this;
   
+              var tip = JSON.parse(window.sessionStorage.getItem("tip"));
+              var userData = this.state.userData;
+  
+              if (userData != null) {
+                  if (event.key === 'Enter') {
+                      var data = {
+                          commentText: event.target.value,
+                          userId: userData.id
+                      };
+                      event.target.value = ' ';
+                      _axios2.default.post("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/add/" + tip.id + "/comment", data).then(function (res) {
+                          var postComment = res.data;
+                          _this4.setState({
+                              postComment: postComment,
+                              error: null
+  
+                          });
+                          _this4.viewtip();
+                      }).catch(function (err) {
+                          _this4.setState({
+                              loading: false,
+                              error: err
+                          });
+                      });
+                  }
+              } else {
+                  alert("please login to Comment");
+              }
+          }
+      }, {
+          key: 'getFovourite',
+          value: function getFovourite() {
+              var _this5 = this;
+  
+              var a = [];
+              a = sessionStorage.getItem("login");
+              a = JSON.parse(a);
+              var b = [];
+              b.push(a);
+              _axios2.default.get("http://ec2-52-66-121-193.ap-south-1.compute.amazonaws.com/tips/" + b[0].id + "/favourites").then(function (res) {
+                  var initfavourite = res.data;
+  
+                  _this5.setState({
+                      initfavourite: initfavourite,
+                      error: null
+                  });
+              }).catch(function (err) {
+                  _this5.setState({
+                      error: err
+                  });
+              });
+          }
       }, {
           key: 'render',
           value: function render() {
               var tip = JSON.parse(window.sessionStorage.getItem("tip"));
-              var comment = this.state.comment;
+              var _state = this.state,
+                  comment = _state.comment,
+                  userData = _state.userData,
+                  likes = _state.likes,
+                  initfavourite = _state.initfavourite;
   
+              var comment1 = comment.sort(function (a, b) {
+                  return new (Function.prototype.bind.apply(Date, [null].concat((0, _toConsumableArray3.default)(b.createdAt.split('/').reverse()))))() - new (Function.prototype.bind.apply(Date, [null].concat((0, _toConsumableArray3.default)(a.createdAt.split('/').reverse()))))();
+              });
               return _react2.default.createElement(
                   'div',
                   null,
@@ -21767,6 +21866,8 @@ module.exports =
                                   'div',
                                   { className: 'viewTip' },
                                   _react2.default.createElement('img', { className: 'viewimage', src: tip.images, alt: tip.title }),
+                                  _react2.default.createElement('div', { className: 'clearfix' }),
+                                  likes.favourite ? _react2.default.createElement('i', { className: 'fa fa-heart', 'aria-hidden': 'true', onClick: this.makeFovourite }) : _react2.default.createElement('i', { className: 'fa fa-heart-o', 'aria-hidden': 'true', onClick: this.makeFovourite }),
                                   _react2.default.createElement(
                                       'div',
                                       { className: 'PostDetails' },
@@ -21860,69 +21961,102 @@ module.exports =
                                           null,
                                           'Comments:'
                                       ),
-                                      comment.map(function (comments, index) {
-                                          return _react2.default.createElement(
+                                      _react2.default.createElement(
+                                          'div',
+                                          { className: 'comments container-fluid' },
+                                          _react2.default.createElement(
                                               'div',
-                                              { key: index },
+                                              { className: 'commemtAdd' },
                                               _react2.default.createElement(
-                                                  _reactBootstrap.Media,
-                                                  null,
+                                                  'div',
+                                                  { className: 'row' },
                                                   _react2.default.createElement(
-                                                      _reactBootstrap.Media.Left,
-                                                      null,
-                                                      _react2.default.createElement('img', { width: 64, height: 64, src: 'http://ieee.ece.ufl.edu/img/profile-pics/default_person.png', alt: 'Image' })
+                                                      'div',
+                                                      { className: 'col-md-1' },
+                                                      userData ? _react2.default.createElement('img', { width: 64, height: 64, src: userData.profilePic, alt: 'Image' }) : _react2.default.createElement('img', { width: 64, height: 64, src: 'http://ieee.ece.ufl.edu/img/profile-pics/default_person.png', alt: 'Image' })
                                                   ),
                                                   _react2.default.createElement(
-                                                      _reactBootstrap.Media.Body,
-                                                      null,
-                                                      comments.user ? _react2.default.createElement(
-                                                          _reactBootstrap.Media.Heading,
-                                                          null,
-                                                          comments.user.firstName
-                                                      ) : _react2.default.createElement(
-                                                          _reactBootstrap.Media.Heading,
-                                                          null,
-                                                          'user name'
-                                                      ),
-                                                      _react2.default.createElement(
-                                                          'p',
-                                                          null,
-                                                          comments.commentText
-                                                      ),
-                                                      comments.replyComments ? _react2.default.createElement(
-                                                          'div',
-                                                          null,
-                                                          ' ',
-                                                          comments.replyComments.map(function (rc, index1) {
-                                                              return _react2.default.createElement(
-                                                                  _reactBootstrap.Media,
-                                                                  { key: index1 },
-                                                                  _react2.default.createElement(
-                                                                      _reactBootstrap.Media.Left,
-                                                                      null,
-                                                                      _react2.default.createElement('img', { width: 64, height: 64, src: 'http://ieee.ece.ufl.edu/img/profile-pics/default_person.png', alt: 'Image' })
-                                                                  ),
-                                                                  _react2.default.createElement(
-                                                                      _reactBootstrap.Media.Body,
-                                                                      null,
-                                                                      comments.user ? _react2.default.createElement(
-                                                                          _reactBootstrap.Media.Heading,
-                                                                          null,
-                                                                          rc.user.firstName
-                                                                      ) : _react2.default.createElement('div', null),
-                                                                      _react2.default.createElement(
-                                                                          'p',
-                                                                          null,
-                                                                          rc.commentText
-                                                                      )
-                                                                  )
-                                                              );
-                                                          })
-                                                      ) : _react2.default.createElement('div', null)
-                                                  )
+                                                      'div',
+                                                      { className: 'col-md-11' },
+                                                      _react2.default.createElement('textarea', { cols: '80', type: 'text', onKeyPress: this.handleKeyPress.bind(this) })
+                                                  ),
+                                                  _react2.default.createElement('div', { className: 'clearfix' })
                                               )
-                                          );
-                                      })
+                                          ),
+                                          comment1.map(function (comments, index) {
+                                              return _react2.default.createElement(
+                                                  'div',
+                                                  { key: index },
+                                                  _react2.default.createElement(
+                                                      'div',
+                                                      { className: 'commentsList' },
+                                                      _react2.default.createElement(
+                                                          'div',
+                                                          { className: 'row' },
+                                                          _react2.default.createElement(
+                                                              'div',
+                                                              { className: 'col-md-1' },
+                                                              comments.user ? _react2.default.createElement('img', { width: 64, height: 64, src: comments.user.image, alt: 'Image' }) : _react2.default.createElement('img', { width: 64, height: 64, src: 'http://ieee.ece.ufl.edu/img/profile-pics/default_person.png', alt: 'Image' })
+                                                          ),
+                                                          _react2.default.createElement(
+                                                              'div',
+                                                              { className: 'col-md-11 commentListText' },
+                                                              comments.user ? _react2.default.createElement(
+                                                                  _reactBootstrap.Media.Heading,
+                                                                  null,
+                                                                  comments.user.firstName
+                                                              ) : _react2.default.createElement(
+                                                                  _reactBootstrap.Media.Heading,
+                                                                  null,
+                                                                  'user name'
+                                                              ),
+                                                              _react2.default.createElement(
+                                                                  'p',
+                                                                  null,
+                                                                  comments.commentText
+                                                              ),
+                                                              _react2.default.createElement(
+                                                                  'span',
+                                                                  null,
+                                                                  new Date(comments.createdAt).toDateString()
+                                                              ),
+                                                              comments.replyComments ? _react2.default.createElement(
+                                                                  'div',
+                                                                  null,
+                                                                  ' ',
+                                                                  comments.replyComments.map(function (rc, index1) {
+                                                                      return _react2.default.createElement(
+                                                                          _reactBootstrap.Media,
+                                                                          { key: index1 },
+                                                                          _react2.default.createElement(
+                                                                              _reactBootstrap.Media.Left,
+                                                                              null,
+                                                                              _react2.default.createElement('img', { width: 64, height: 64, src: 'http://ieee.ece.ufl.edu/img/profile-pics/default_person.png', alt: 'Image' })
+                                                                          ),
+                                                                          _react2.default.createElement(
+                                                                              _reactBootstrap.Media.Body,
+                                                                              null,
+                                                                              comments.user ? _react2.default.createElement(
+                                                                                  _reactBootstrap.Media.Heading,
+                                                                                  null,
+                                                                                  rc.user.firstName
+                                                                              ) : _react2.default.createElement('div', null),
+                                                                              _react2.default.createElement(
+                                                                                  'p',
+                                                                                  null,
+                                                                                  rc.commentText
+                                                                              )
+                                                                          )
+                                                                      );
+                                                                  })
+                                                              ) : _react2.default.createElement('div', null)
+                                                          ),
+                                                          _react2.default.createElement('div', { className: 'clearfix' })
+                                                      )
+                                                  )
+                                              );
+                                          })
+                                      )
                                   )
                               )
                           ),
@@ -21946,6 +22080,12 @@ module.exports =
 
 /***/ }),
 /* 164 */
+/***/ (function(module, exports) {
+
+  module.exports = require("lodash");
+
+/***/ }),
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -21980,7 +22120,7 @@ module.exports =
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var _ = __webpack_require__(165);
+  var _ = __webpack_require__(164);
   
   var propTypes = {
       items: _react.PropTypes.array.isRequired,
@@ -22175,12 +22315,6 @@ module.exports =
   Pagination.propTypes = propTypes;
   Pagination.defaultProps;
   exports.default = Pagination;
-
-/***/ }),
-/* 165 */
-/***/ (function(module, exports) {
-
-  module.exports = require("lodash");
 
 /***/ }),
 /* 166 */
